@@ -7,6 +7,7 @@ runs:
   using: composite
   steps:
     - name: Delete all the things
+      shell: bash
       run: |
         set -ex -o pipefail
         sudo apt-get purge llvm\*
