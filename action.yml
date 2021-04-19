@@ -11,6 +11,7 @@ runs:
       run: |
         set -ex -o pipefail
         sudo apt-get purge llvm\*
-        sudo rm -rf /usr/local/go1* /usr/share/{dotnet,rust} \
-          /usr/local/julia* /usr/local/firefox /usr/lib/llvm* /usr/share/gradle* \
-          /usr/lib/google-cloud-sdk
+        sudo rm -rf \
+          /usr/local/{go1,julia,firefox,graalvm,aws-cli}* \
+          /usr/share/{dotnet,rust,gradle}* \
+          /usr/lib/{llvm,google-cloud-sdk}*

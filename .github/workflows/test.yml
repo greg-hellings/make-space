@@ -18,12 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
-      - name: Verify output is good
+      - name: Check diskspace on the host
         shell: bash
         run: |
           set -ex
-          du -sh /usr/share/*
-          du -sh /usr/lib/*
-          du -sh /usr/local/*
-          du -sh /opt/*
+          du -sh /usr/share/* | sort -h
+          du -sh /usr/lib/* | sort -h
+          sudo du -sh /usr/local/* | sort -h
+          sudo du -sh /usr/local/share/* | sort -h
+          sudo du -sh /opt/* | sort -h
           df -h
