@@ -13,5 +13,7 @@ runs:
         sudo apt-get purge llvm\*
         sudo rm -rf \
           /usr/local/{go1,julia,firefox,graalvm,aws-cli}* \
-          /usr/share/{dotnet,rust,gradle}* \
-          /usr/lib/{llvm,google-cloud-sdk}*
+          /usr/share/{dotnet,rust,gradle,swift,miniconda,az_5.7.0}* \
+          /usr/lib/{llvm,google-cloud-sdk,jvm,mono,firefox,erlang}* \
+          /usr/local/share/{vcpkg,powershell,chromium}* \
+          /opt/{google,hhvm,pipx,az,ghc}
