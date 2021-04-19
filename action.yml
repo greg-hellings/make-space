@@ -1,0 +1,16 @@
+name: Make space
+description: |
+  Makes space on your worker node by deleting a lot of the software that
+  comes pre-installed but that I don't really plan to use for doing work with
+  nested VMs
+inputs:
+runs:
+  using: composite
+  steps:
+    - name: Delete all the things
+      run: |
+        set -ex -o pipefail
+        sudo apt-get purge llvm\*
+        sudo rm -rf /usr/local/go1* /usr/share/{dotnet,rust} \
+          /usr/local/julia* /usr/local/firefox /usr/lib/llvm* /usr/share/gradle* \
+          /usr/lib/google-cloud-sdk

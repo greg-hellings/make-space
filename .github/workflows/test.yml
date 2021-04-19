@@ -1,0 +1,29 @@
+name: Test that it works
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Test that code works properly
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          #- macos-latest
+          #- windows-latest
+          - ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+      - name: Verify output is good
+        shell: bash
+        run: |
+          set -ex
+          du -sh /usr/share/*
+          du -sh /usr/lib/*
+          du -sh /usr/local/*
+          du -sh /opt/*
+          df -h
