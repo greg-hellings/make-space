@@ -8,6 +8,7 @@ runs:
   steps:
     - name: Delete all the things
       shell: bash
+      if: runner.os == 'Linux'
       run: |
         set -ex -o pipefail
         sudo apt-get purge llvm\*
@@ -17,3 +18,8 @@ runs:
           /usr/lib/{llvm,google-cloud-sdk,jvm,mono,firefox,erlang}* \
           /usr/local/share/{vcpkg,powershell,chromium}* \
           /opt/{google,hhvm,pipx,az,ghc}
+    - name: Delete all the things - macOS edition
+      shell: bash
+      if: runner.os == 'macOS'
+      run: |
+        echo "What do I delete?"

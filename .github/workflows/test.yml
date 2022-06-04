@@ -13,14 +13,17 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          #- macos-latest
+          - macos-10.15
+          - macos-12
           #- windows-latest
-          - ubuntu-latest
+          - ubuntu-20.04
+          - ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - uses: ./
       - name: Check diskspace on the host
         shell: bash
+        if: startsWith(matrix.os, 'ubuntu')
         run: |
           set -ex
           du -sh /usr/share/* | sort -h
@@ -29,3 +32,11 @@ jobs:
           sudo du -sh /usr/local/share/* | sort -h
           sudo du -sh /opt/* | sort -h
           df -h
+      - name: Check diskspace on the host
+        shell: bash
+        if: startsWith(matrix.os, 'macos')
+        run: |
+          set -ex
+          du -sh / | sort -h
+          df -h
+          du -sh /Applications | sort -h
