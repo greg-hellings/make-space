@@ -14,17 +14,20 @@ runs:
         sudo apt-get purge llvm\* php\*
         sudo rm -rf \
           /usr/local/aws-cli* \
+          /usr/local/aws-sam-cli* \
+          /usr/local/doc \
           /usr/local/firefox* \
           /usr/local/go1* \
           /usr/local/graalvm* \
           /usr/local/julia*
 
         sudo rm -rf \
+          /usr/share/apache-maven* \
           /usr/share/az_* \
           /usr/share/doc \
           /usr/share/dotnet \
           /usr/share/fonts \
-          /usr/share/gradle \
+          /usr/share/gradle* \
           /usr/share/java \
           /usr/share/kotlinc \
           /usr/share/man \
@@ -42,9 +45,15 @@ runs:
           /usr/lib/google-cloud-sdk* \
           /usr/lib/heroku* \
           /usr/lib/jvm* \
+          /usr/lib/libmono* \
           /usr/lib/llvm* \
           /usr/lib/mono* \
-          /usr/local/share/{vcpkg,powershell,chromium}* \
+          /usr/lib/R
+
+        sudo rm -rf \
+          /usr/local/share/chromium* \
+          /usr/local/share/powershell* \
+          /usr/local/share/vcpkg*
 
         sudo rm -rf \
           /opt/az \
