@@ -32,11 +32,12 @@ jobs:
         shell: bash
         if: startsWith(matrix.os, 'ubuntu')
         run: |
-          set -ex
+          set -e
           df -h
           du -sh /usr/share/* | sort -h
           du -sh /usr/lib/* | sort -h
           sudo du -sh /usr/local/* | sort -h
+          sudo du -sh /usr/local/lib/* | sort -h
           sudo du -sh /usr/local/share/* | sort -h
           sudo du -sh /opt/* | sort -h
 
@@ -44,7 +45,6 @@ jobs:
         shell: bash
         if: startsWith(matrix.os, 'macos')
         run: |
-          set -x
           sudo df -h
           sudo du -sh / | sort -h
           sudo du -sh /Applications | sort -h
