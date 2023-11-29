@@ -13,11 +13,47 @@ runs:
         set -ex -o pipefail
         sudo apt-get purge llvm\* php\*
         sudo rm -rf \
-          /usr/local/{go1,julia,firefox,graalvm,aws-cli}* \
-          /usr/share/{dotnet,rust,gradle,swift,miniconda,az_}* \
-          /usr/lib/{llvm,google-cloud-sdk,jvm,mono,firefox,erlang}* \
+          /usr/local/aws-cli* \
+          /usr/local/firefox* \
+          /usr/local/go1* \
+          /usr/local/graalvm* \
+          /usr/local/julia*
+
+        sudo rm -rf \
+          /usr/share/az_* \
+          /usr/share/doc \
+          /usr/share/dotnet \
+          /usr/share/fonts \
+          /usr/share/gradle \
+          /usr/share/java \
+          /usr/share/kotlinc \
+          /usr/share/man \
+          /usr/share/miniconda \
+          /usr/share/perl \
+          /usr/share/sbt \
+          /usr/share/swift \
+          /usr/share/R \
+          /usr/share/rust \
+          /usr/share/vim
+
+        sudo rm -rf \
+          /usr/lib/erlang* \
+          /usr/lib/firefox* \
+          /usr/lib/google-cloud-sdk* \
+          /usr/lib/heroku* \
+          /usr/lib/jvm* \
+          /usr/lib/llvm* \
+          /usr/lib/mono* \
           /usr/local/share/{vcpkg,powershell,chromium}* \
-          /opt/{google,hhvm,pipx,az,ghc}
+
+        sudo rm -rf \
+          /opt/az \
+          /opt/ghc \
+          /opt/google \
+          /opt/hhvm \
+          /opt/microsoft \
+          /opt/pipx
+
     - name: Delete all the things - macOS edition
       shell: bash
       if: runner.os == 'macOS'
